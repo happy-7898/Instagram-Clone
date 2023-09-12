@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD POST</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+<body>
+
+
+    <nav class="navbar">
+        <div class="nav-wrapper">
+            <img class="brand-image" src="logo.png">
+            <form class="search-form">
+                <input type="text" class="search-box" placeholder="Search">
+            </form>
+
+            <div class="nav-items">
+                <a href="index.html" style="color: black;"><i class="icon fa-solid fa-house fa-lg"></i></a>
+
+                <a href="discover.html" style="color: black;"><i class="icon fa-sharp fa-regular fa-compass fa-lg"></i></a>
+
+                <a href="camera.html" style="color: black;"><i class="icon fa-solid fa-plus fa-lg"></i></a>
+                <!-- <i class="icon fa-regular fa-heart"></i> -->
+                <div class="icon user-profile">
+                    <a href="profile.html" style="color: black;"><i class="fa-solid fa-user fa-lg"></i></a>
+                </div>
+            </div>
+        </div> 
+    </nav>
+
+
+    <div class="camera-container">
+        <div class="camera">
+            <div class="camera-image">
+                <img src="1.jpg" alt="">
+                <form action="" class="camera-form">
+                    <div class="form-group">
+                        <input type="text" name="caption" class="form-control" placeholder="type caption" id="caption">
+                    </div>
+                    <!-- <div class="form-group">
+                        <input type="text" name="hashtags" class="form-control" placeholder="type hashtags" id=""hashtags>
+                    </div> -->
+                    <div class="form-group">
+                        <button type="submit" name="upload-image-btn" class="upload-btn" id="post">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   
+
+    
+        
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/92e559a4e8.js" crossorigin="anonymous"></script>
+    
+    <script>
+        
+        let btn=document.getElementById("post");
+        
+        btn.onclick = (event) =>{
+            event.preventDefault();
+            window.alert("Post added successfully")
+            let value1=document.getElementById("caption").value;
+            let str = sessionStorage.getItem('captions');
+            
+            str = str + value1 + ",";
+            sessionStorage.setItem("captions",str);
+            let arr = sessionStorage.getItem("captions").split(",");
+            console.log(arr);
+        }
+    </script>
+</body>
+</html>
